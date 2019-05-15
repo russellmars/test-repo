@@ -7,34 +7,38 @@
   <title>WhatsApp test</title>
   <style>
     body {
-      margin: 40px;
-      font-size: 20px;
+      margin: 20px;
+      font-size: 14px;
     }
     .btn-wrapper {
-      margin-top: 40px;
+      margin: 40px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <span>document.hidden</span>
-    <span id="hidden"></span>
-  </div>
   <div class="btn-wrapper">
     <button id="btn">跳转到WhatsApps</button>
   </div>
+  <div id="log-wrapper"></div>
+  <script src="https://unpkg.com/dayjs"></script>
   <script>
-    var hidden = document.getElementById('hidden')
-    hidden.innerHTML = document.webkitHidden || document.hidden
+    var logWrapper = document.getElementById('log-wrapper')
 
     document.addEventListener("visibilitychange", function() {
-      hidden.innerHTML = document.webkitHidden || document.hidden
+      appendHiddenLog()
     });
+    appendHiddenLog()
 
     var btn = document.getElementById('btn')
     btn.addEventListener('click', function() {
-      location.href = 'whatsapp://send?text=https%3A%2F%2Frussellmars\'s%20blog%20https%3A%2F%2Frussellmars.github.io%2F'
+      location.href = 'https%3A%2F%2Frussellmars\'s%20blog%20https%3A%2F%2Frussellmars.github.io%2F'
     })
+
+    function appendHiddenLog() {
+      var log = document.createElement('div')
+      log.innerHTML = dayjs().format('YYYY-MM-DD HH:mm:ss') + '===' + document.visibilityState
+      logWrapper.appendChild(log)
+    }
   </script>
 </body>
 </html>
