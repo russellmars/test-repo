@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WhatsApp test</title>
+  <style>
+    body {
+      margin: 40px;
+      font-size: 20px;
+    }
+    .btn-wrapper {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span>document.hidden</span>
+    <span id="hidden"></span>
+  </div>
+  <div class="btn-wrapper">
+    <button id="btn">跳转到WhatsApps</button>
+  </div>
+  <script>
+    var hidden = document.getElementById('hidden')
+    hidden.innerHTML = document.webkitHidden || document.hidden
+
+    document.addEventListener("visibilitychange", function() {
+      hidden.innerHTML = document.webkitHidden || document.hidden
+    });
+
+    var btn = document.getElementById('btn')
+    btn.addEventListener('click', function() {
+      location.href = 'https%3A%2F%2Frussellmars\'s%20blog%20https%3A%2F%2Frussellmars.github.io%2F'
+    })
+  </script>
+</body>
+</html>
